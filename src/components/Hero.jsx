@@ -71,13 +71,15 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="max-w-3xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-white">
-            Lock down your infrastructure. <em className="not-italic italic font-serif font-bold">Ship without limits.</em>
+            <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-purple-500 bg-clip-text text-transparent">DigiLock</span>{" "}
+            automates everything.
           </h1>
-
           {/* Subheadline */}
-          <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-white/70">
-            We build high-performance solutions to modernize operations and drive growth across your entire organization.
+          <p className="mt-6 max-w-2xl text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-white tracking-tight">
+            Lock down your infrastructure. <em className="not-italic italic font-serif font-bold bg-gradient-to-r from-orange-400 to-purple-500 bg-clip-text text-transparent">Ship without limits.</em>
           </p>
+
+
 
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
