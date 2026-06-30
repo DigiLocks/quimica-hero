@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Sparkles, Play } from "lucide-react";
 import PhoneMockup from "./PhoneMockup.jsx";
+import Modal from "./Modal.jsx";
 import IntegrationMarquee from "./IntegrationMarquee.jsx";
 
 function AvatarGroup() {
@@ -26,6 +28,7 @@ function Stars() {
 }
 
 export default function Hero() {
+  const [open, setOpen] = useState(false);
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-black">
       <video autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover opacity-100">
@@ -43,7 +46,7 @@ export default function Hero() {
               <a href="#" className="hover:text-white">Pricing</a>
               <a href="#" className="hover:text-white">Docs</a>
             </div>
-            <button className="ml-auto flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur-2xl border border-white/40 px-4 py-1.5 text-xs font-semibold text-white hover:bg-white/25">
+            <button onClick={() => setOpen(true)} className="ml-auto flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur-2xl border border-white/40 px-4 py-1.5 text-xs font-semibold text-white hover:bg-white/25">
               <Sparkles className="w-3.5 h-3.5" />Generate
             </button>
           </div>
@@ -61,7 +64,7 @@ export default function Hero() {
             We build high-performance solutions to modernize operations and drive growth across your entire organization.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-            <button className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-orange-500 via-purple-600 to-orange-500 bg-[length:200%_200%] animate-gradient-shift px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-600/25">
+            <button className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-orange-500 via-purple-600 to-orange-500 bg-[length:200%_200%] animate-gradient-shift px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-600/25"
               <span aria-hidden="true" className="pointer-events-none absolute -inset-y-1 -inset-x-[150%] animate-light-sweep bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-[-12deg]" />
               <Sparkles className="relative z-10 w-4 h-4" />
               <span className="relative z-10">Generate</span>
@@ -88,6 +91,8 @@ export default function Hero() {
               <div className="text-xs uppercase tracking-widest text-white/50 mt-1">Teams Shipped</div>
             </div>
           </div>
+
+        <Modal open={open} onClose={() => setOpen(false)} />
 
         <div className="mt-auto pb-10 px-4">
           <IntegrationMarquee />

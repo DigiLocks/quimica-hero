@@ -12,6 +12,18 @@ export default {
           '0%, 100%': { transform: 'translateY(0) rotate(-2deg)' },
           '50%': { transform: 'translateY(-20px) rotate(-2deg)' },
         },
+        
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        'pop-in': {
+          '0%': { opacity: '0', transform: 'scale(0.92)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        
+        'fade-in': 'fade-in 0.2s ease-out',
+        'pop-in': 'pop-in 0.25s ease-out',
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
@@ -26,6 +38,9 @@ export default {
         },
       },
       animation: {
+        
+        'fade-in': 'fade-in 0.2s ease-out',
+        'pop-in': 'pop-in 0.25s ease-out',
         marquee: 'marquee 50s linear infinite',
         'gradient-shift': 'gradient-shift 4s ease infinite',
         'light-sweep': 'light-sweep 3s ease-in-out infinite',
