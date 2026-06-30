@@ -5,28 +5,19 @@ export default function PhoneMockup() {
       <div className="absolute inset-0 -m-20 bg-orange-500/20 rounded-full blur-3xl" />
       
       {/* Floating wrapper */}
-      <div className="relative animate-[float_6s_ease-in-out_infinite] [animation-delay:1s]">
+      <div className="relative animate-[float_6s_ease-in-out_infinite]">
         {/* Phone frame */}
         <div className="relative w-[280px] h-[580px] bg-black rounded-[3rem] p-2 shadow-2xl shadow-purple-900/50">
           {/* Notch */}
           <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-10" />
           
-          {/* Inner screen - plays the same video as bg */}
+          {/* Inner screen */}
           <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-black">
-            <video 
-              autoPlay 
-              muted 
-              loop 
-              playsInline 
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source 
-                src="https://cdn.sceneai.art/Hero%20Section%20Video/247f75dd-335a-4aaa-ba65-47df2f7b24b9.mp4" 
-                type="video/mp4" 
-              />
+            <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
+              <source src="https://cdn.sceneai.art/Hero%20Section%20Video/247f75dd-335a-4aaa-ba65-47df2f7b24b9.mp4" type="video/mp4" />
             </video>
             
-            {/* UI overlay on top of video */}
+            {/* Subtle dark overlay for legibility */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
             
             {/* App header */}

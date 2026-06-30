@@ -24,6 +24,7 @@ export default {
         
         'fade-in': 'fade-in 0.2s ease-out',
         'pop-in': 'pop-in 0.25s ease-out',
+                'float': 'float 6s ease-in-out infinite',
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
@@ -41,6 +42,7 @@ export default {
         
         'fade-in': 'fade-in 0.2s ease-out',
         'pop-in': 'pop-in 0.25s ease-out',
+                'float': 'float 6s ease-in-out infinite',
         marquee: 'marquee 50s linear infinite',
         'gradient-shift': 'gradient-shift 4s ease infinite',
         'light-sweep': 'light-sweep 3s ease-in-out infinite',
