@@ -1,5 +1,5 @@
 import Logo from "./Logo.jsx";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Sparkles, Play } from "lucide-react";
 import PhoneMockup from "./PhoneMockup.jsx";
 import Modal from "./Modal.jsx";
@@ -30,17 +30,64 @@ function Stars() {
 }
 
 export default function Hero() {
+
+  const videoRef = useRef(null);
+  const overlayRef = useRef(null);
+  const contentRef = useRef(null);
+  const rafRef = useRef(null);
+  const target = useRef({ x: 0, y: 0 });
+  const current = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    let running = true;
+    const onMove = (e) => {
+      target.current.x = (e.clientX / window.innerWidth - 0.5) * 2;
+      target.current.y = (e.clientY / window.innerHeight - 0.5) * 2;
+      if (!rafRef.current && running) {
+        rafRef.current = requestAnimationFrame(tick);
+      }
+    };
+    const tick = () => {
+      rafRef.current = null;
+      const ease = 0.08;
+      current.current.x += (target.current.x - current.current.x) * ease;
+      current.current.y += (target.current.y - current.current.y) * ease;
+
+      if (videoRef.current) {
+        const v = current.current;
+        videoRef.current.style.transform = `translate3d(${(-v.x * 30).toFixed(2)}px, ${(-v.y * 30).toFixed(2)}px, 0) scale(1.05)`;
+      }
+      if (overlayRef.current) {
+        const v = current.current;
+        overlayRef.current.style.transform = `translate3d(${(-v.x * 15).toFixed(2)}px, ${(-v.y * 15).toFixed(2)}px, 0) scale(1.02)`;
+      }
+      if (contentRef.current) {
+        const v = current.current;
+        contentRef.current.style.transform = `translate3d(${(-v.x * 6).toFixed(2)}px, ${(-v.y * 6).toFixed(2)}px, 0)`;
+      }
+      if (Math.abs(target.current.x - current.current.x) > 0.001 || Math.abs(target.current.y - current.current.y) > 0.001) {
+        if (running) rafRef.current = requestAnimationFrame(tick);
+      }
+    };
+    window.addEventListener("mousemove", onMove);
+    return () => {
+      running = false;
+      window.removeEventListener("mousemove", onMove);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
   const [open, setOpen] = useState(false);
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-black">
-      <video autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover opacity-100">
+      <video ref={videoRef} autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover opacity-100 will-change-transform">
         <source src="https://cdn.sceneai.art/Hero%20Section%20Video/247f75dd-335a-4aaa-ba65-47df2f7b24b9.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-black/10" />
+      <div ref={overlayRef} className="absolute inset-0 bg-black/10 will-change-transform" />
       <PhoneMockup />
 
-      <div className="relative z-10 flex min-h-screen flex-col">
+      <div ref={contentRef} className="relative z-10 flex min-h-screen flex-col will-change-transform">
         {/* NAV */}
         <nav className="flex justify-center pt-6 px-4">
           <div className="flex items-center gap-6 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 px-5 py-2.5 shadow-lg shadow-black/30">
