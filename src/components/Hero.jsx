@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Sparkles, Play } from "lucide-react";
 import PhoneMockup from "./PhoneMockup.jsx";
 import Modal from "./Modal.jsx";
+import AnimatedCounter from "./AnimatedCounter.jsx";
 import IntegrationMarquee from "./IntegrationMarquee.jsx";
 
 function AvatarGroup() {
@@ -99,7 +100,7 @@ export default function Hero() {
             </div>
             <div className="h-12 w-px bg-white/20 hidden sm:block" />
             <div className="flex flex-col items-center min-w-[120px]">
-              <div className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-orange-400 to-purple-500 bg-clip-text text-transparent">500+</div>
+              <div className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-orange-400 to-purple-500 bg-clip-text text-transparent"><AnimatedCounter from={487} to={625} duration={45000} /></div>
               <div className="text-xs uppercase tracking-widest text-white/50 mt-1">Teams Shipped</div>
             </div>
           </div>
