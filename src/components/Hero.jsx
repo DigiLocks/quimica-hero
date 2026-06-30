@@ -34,7 +34,7 @@ export default function Hero() {
       <div className="relative z-10 flex min-h-screen flex-col">
         <nav className="flex justify-center pt-6 px-4">
           <div className="flex items-center gap-6 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 px-5 py-2.5 shadow-lg shadow-black/30">
-            <span className="text-white font-bold tracking-tight text-sm mr-2">Qumica</span>
+            <span className="text-white font-bold tracking-tight text-sm mr-2">DigiLock</span>
             <div className="hidden sm:flex items-center gap-5 text-white/80 text-[13px]">
               <a href="#" className="hover:text-white">Products</a>
               <a href="#" className="hover:text-white">Solutions</a>
@@ -53,7 +53,7 @@ export default function Hero() {
             <span className="text-white/80 text-sm font-medium">Trusted by <strong className="text-white">500+</strong> teams</span>
           </div>
           <h1 className="max-w-3xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-white">
-            Ready to <em className="not-italic italic font-serif font-bold">elevate</em> your digital infrastructure?
+            DigiLock - Ready to <em className="not-italic italic font-serif font-bold">elevate</em> your digital infrastructure?
           </h1>
           <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-white/70">
             We build high-performance solutions to modernize operations and drive growth across your entire organization.
