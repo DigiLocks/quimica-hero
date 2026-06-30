@@ -69,6 +69,24 @@ export default function Hero() {
             </button>
           </div>
         </div>
+                  {/* === STATS ROW === */}
+          <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-white/80">
+            <div className="flex flex-col items-center min-w-[120px]">
+              <div className="text-3xl sm:text-4xl font-extrabold text-white">99.9%</div>
+              <div className="text-xs uppercase tracking-widest text-white/50 mt-1">Uptime SLA</div>
+            </div>
+            <div className="h-12 w-px bg-white/20 hidden sm:block" />
+            <div className="flex flex-col items-center min-w-[120px]">
+              <div className="text-3xl sm:text-4xl font-extrabold text-white">50ms</div>
+              <div className="text-xs uppercase tracking-widest text-white/50 mt-1">Avg. Latency</div>
+            </div>
+            <div className="h-12 w-px bg-white/20 hidden sm:block" />
+            <div className="flex flex-col items-center min-w-[120px]">
+              <div className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-orange-400 to-purple-500 bg-clip-text text-transparent">500+</div>
+              <div className="text-xs uppercase tracking-widest text-white/50 mt-1">Teams Shipped</div>
+            </div>
+          </div>
+
         <div className="mt-auto pb-10 px-4">
           <IntegrationMarquee />
         </div>
