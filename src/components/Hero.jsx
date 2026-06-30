@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Sparkles, Play } from "lucide-react";
-import PhoneMockup from "./PhoneMockup.jsx";
 import Modal from "./Modal.jsx";
 import IntegrationMarquee from "./IntegrationMarquee.jsx";
 
@@ -35,7 +34,6 @@ export default function Hero() {
         <source src="https://cdn.sceneai.art/Hero%20Section%20Video/247f75dd-335a-4aaa-ba65-47df2f7b24b9.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/10" />
-      <PhoneMockup />
       <div className="relative z-10 flex min-h-screen flex-col">
         <nav className="flex justify-center pt-6 px-4">
           <div className="flex items-center gap-6 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 px-5 py-2.5 shadow-lg shadow-black/30">
@@ -64,7 +62,7 @@ export default function Hero() {
             We build high-performance solutions to modernize operations and drive growth across your entire organization.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-            <button className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-orange-500 via-purple-600 to-orange-500 bg-[length:200%_200%] animate-gradient-shift px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-600/25"
+            <button className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-orange-500 via-purple-600 to-orange-500 bg-[length:200%_200%] animate-gradient-shift px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-600/25">
               <span aria-hidden="true" className="pointer-events-none absolute -inset-y-1 -inset-x-[150%] animate-light-sweep bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-[-12deg]" />
               <Sparkles className="relative z-10 w-4 h-4" />
               <span className="relative z-10">Generate</span>
@@ -74,30 +72,11 @@ export default function Hero() {
             </button>
           </div>
         </div>
-                  {/* === STATS ROW === */}
-          <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-white/80">
-            <div className="flex flex-col items-center min-w-[120px]">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white">99.9%</div>
-              <div className="text-xs uppercase tracking-widest text-white/50 mt-1">Uptime SLA</div>
-            </div>
-            <div className="h-12 w-px bg-white/20 hidden sm:block" />
-            <div className="flex flex-col items-center min-w-[120px]">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white">50ms</div>
-              <div className="text-xs uppercase tracking-widest text-white/50 mt-1">Avg. Latency</div>
-            </div>
-            <div className="h-12 w-px bg-white/20 hidden sm:block" />
-            <div className="flex flex-col items-center min-w-[120px]">
-              <div className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-orange-400 to-purple-500 bg-clip-text text-transparent">500+</div>
-              <div className="text-xs uppercase tracking-widest text-white/50 mt-1">Teams Shipped</div>
-            </div>
-          </div>
-
-        <Modal open={open} onClose={() => setOpen(false)} />
-
         <div className="mt-auto pb-10 px-4">
           <IntegrationMarquee />
         </div>
       </div>
+      <Modal open={open} onClose={() => setOpen(false)} />
     </div>
   );
 }
