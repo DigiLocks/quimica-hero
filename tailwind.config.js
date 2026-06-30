@@ -7,6 +7,11 @@ export default {
         serif: ['"Playfair Display"', 'serif'],
       },
       keyframes: {
+        
+        float: {
+          '0%, 100%': { transform: 'translateY(0) rotate(-2deg)' },
+          '50%': { transform: 'translateY(-20px) rotate(-2deg)' },
+        },
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },

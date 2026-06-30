@@ -1,4 +1,5 @@
 import { Sparkles, Play } from "lucide-react";
+import PhoneMockup from "./PhoneMockup.jsx";
 import IntegrationMarquee from "./IntegrationMarquee.jsx";
 
 function AvatarGroup() {
@@ -31,6 +32,7 @@ export default function Hero() {
         <source src="https://cdn.sceneai.art/Hero%20Section%20Video/247f75dd-335a-4aaa-ba65-47df2f7b24b9.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/10" />
+      <PhoneMockup />
       <div className="relative z-10 flex min-h-screen flex-col">
         <nav className="flex justify-center pt-6 px-4">
           <div className="flex items-center gap-6 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 px-5 py-2.5 shadow-lg shadow-black/30">
