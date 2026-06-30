@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { Sparkles, Play } from "lucide-react";
 import Modal from "./Modal.jsx";
-import PhoneMockup from "./PhoneMockup.jsx";
 import IntegrationMarquee from "./IntegrationMarquee.jsx";
 
 function AvatarGroup() {
-  const c = ["ring-orange-500/60","ring-purple-500/50","ring-cyan-500/50"];
+  const rings = ["ring-orange-500/60", "ring-purple-500/50", "ring-cyan-500/50"];
   return (
     <div className="flex -space-x-2.5">
-      {[0,1,2].map(i => (
-        <div key={i} className={"h-7 w-7 rounded-full ring-2 "+c[i]+" bg-gradient-to-br from-neutral-700 to-neutral-900 border border-white/10"} />
+      {[0, 1, 2].map((i) => (
+        <div key={i} className={"h-7 w-7 rounded-full ring-2 " + rings[i] + " bg-gradient-to-br from-neutral-700 to-neutral-900 border border-white/10"} />
       ))}
     </div>
   );
@@ -29,14 +28,16 @@ function Stars() {
 
 export default function Hero() {
   const [open, setOpen] = useState(false);
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-black">
       <video autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover opacity-100">
         <source src="https://cdn.sceneai.art/Hero%20Section%20Video/247f75dd-335a-4aaa-ba65-47df2f7b24b9.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/10" />
-      <PhoneMockup />
+
       <div className="relative z-10 flex min-h-screen flex-col">
+        {/* NAV */}
         <nav className="flex justify-center pt-6 px-4">
           <div className="flex items-center gap-6 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 px-5 py-2.5 shadow-lg shadow-black/30">
             <span className="text-white font-bold tracking-tight text-sm mr-2">DigiLock</span>
@@ -51,33 +52,64 @@ export default function Hero() {
             </button>
           </div>
         </nav>
+
+        {/* HERO CONTENT */}
         <div className="flex flex-1 flex-col items-center pt-44 pb-24 px-6 text-center">
+          {/* Social proof */}
           <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-white/[0.07] backdrop-blur-md border border-white/10 px-5 py-2.5 scale-[1.05]">
             <AvatarGroup />
             <Stars />
             <span className="text-white/80 text-sm font-medium">Trusted by <strong className="text-white">500+</strong> teams</span>
           </div>
+
+          {/* Headline */}
           <h1 className="max-w-3xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-white">
-            DigiLock - Ready to <em className="not-italic italic font-serif font-bold">elevate</em> your digital infrastructure?
+            Ready to <em className="not-italic italic font-serif font-bold">elevate</em> your digital infrastructure?
           </h1>
+
+          {/* Subheadline */}
           <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-white/70">
             We build high-performance solutions to modernize operations and drive growth across your entire organization.
           </p>
+
+          {/* CTA Buttons */}
           <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-            <button className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-orange-500 via-purple-600 to-orange-500 bg-[length:200%_200%] animate-gradient-shift px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-600/25">
+            <button onClick={() => setOpen(true)} className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-orange-500 via-purple-600 to-orange-500 bg-[length:200%_200%] animate-gradient-shift px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-600/25 hover:shadow-purple-600/40 transition-shadow">
               <span aria-hidden="true" className="pointer-events-none absolute -inset-y-1 -inset-x-[150%] animate-light-sweep bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-[-12deg]" />
               <Sparkles className="relative z-10 w-4 h-4" />
               <span className="relative z-10">Generate</span>
             </button>
-            <button className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/30 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/20">
+            <button className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/30 px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors">
               <Play className="w-4 h-4" />View Platform
             </button>
           </div>
+
+          {/* Stats Row */}
+          <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-white/80">
+            <div className="flex flex-col items-center min-w-[120px]">
+              <div className="text-3xl sm:text-4xl font-extrabold text-white">99.9%</div>
+              <div className="text-xs uppercase tracking-widest text-white/50 mt-1">Uptime SLA</div>
+            </div>
+            <div className="h-12 w-px bg-white/20 hidden sm:block" />
+            <div className="flex flex-col items-center min-w-[120px]">
+              <div className="text-3xl sm:text-4xl font-extrabold text-white">50ms</div>
+              <div className="text-xs uppercase tracking-widest text-white/50 mt-1">Avg. Latency</div>
+            </div>
+            <div className="h-12 w-px bg-white/20 hidden sm:block" />
+            <div className="flex flex-col items-center min-w-[120px]">
+              <div className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-orange-400 to-purple-500 bg-clip-text text-transparent">500+</div>
+              <div className="text-xs uppercase tracking-widest text-white/50 mt-1">Teams Shipped</div>
+            </div>
+          </div>
         </div>
+
+        {/* MARQUEE */}
         <div className="mt-auto pb-10 px-4">
           <IntegrationMarquee />
         </div>
       </div>
+
+      {/* MODAL */}
       <Modal open={open} onClose={() => setOpen(false)} />
     </div>
   );
