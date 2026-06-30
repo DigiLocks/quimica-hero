@@ -1,3 +1,4 @@
+import Logo from "./Logo.jsx";
 import { useState } from "react";
 import { Sparkles, Play } from "lucide-react";
 import PhoneMockup from "./PhoneMockup.jsx";
@@ -43,7 +44,10 @@ export default function Hero() {
         {/* NAV */}
         <nav className="flex justify-center pt-6 px-4">
           <div className="flex items-center gap-6 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 px-5 py-2.5 shadow-lg shadow-black/30">
-            <span className="text-white font-bold tracking-tight text-sm mr-2">DigiLock</span>
+            <span className="flex items-center gap-2 mr-2">
+              <Logo className="w-6 h-6" />
+              <span className="text-white font-bold tracking-tight text-sm">DigiLock</span>
+            </span>
             <div className="hidden sm:flex items-center gap-5 text-white/80 text-[13px]">
               <a href="#" className="hover:text-white">Products</a>
               <a href="#" className="hover:text-white">Solutions</a>
@@ -67,7 +71,7 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="max-w-3xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-white">
-            Ready to <em className="not-italic italic font-serif font-bold">elevate</em> your digital infrastructure?
+            Lock down your infrastructure. <em className="not-italic italic font-serif font-bold">Ship without limits.</em>
           </h1>
 
           {/* Subheadline */}
