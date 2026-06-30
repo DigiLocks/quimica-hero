@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function MouseGradient() {
-  const [pos, setPos] = useState({ x: -200, y: -200 });
-
   useEffect(() => {
     let rafId = null;
     let target = { x: -200, y: -200 };
@@ -10,18 +8,14 @@ export default function MouseGradient() {
 
     const onMove = (e) => {
       target = { x: e.clientX, y: e.clientY };
-      if (!rafId) {
-        rafId = requestAnimationFrame(tick);
-      }
+      if (!rafId) rafId = requestAnimationFrame(tick);
     };
 
     const tick = () => {
-      // Lerp către target cu un factor mic (mai mare = mai rapid)
       const ease = 0.12;
       current.x += (target.x - current.x) * ease;
       current.y += (target.y - current.y) * ease;
 
-      // Update CSS variables direct (fără React rerender)
       const root = document.documentElement;
       root.style.setProperty("--mx1", `${current.x}px`);
       root.style.setProperty("--my1", `${current.y}px`);
@@ -45,7 +39,6 @@ export default function MouseGradient() {
 
   return (
     <>
-      {/* Orange light */}
       <div
         className="pointer-events-none fixed inset-0 z-0"
         style={{
@@ -53,7 +46,6 @@ export default function MouseGradient() {
             "radial-gradient(600px circle at var(--mx1, -200px) var(--my1, -200px), rgba(249, 115, 22, 0.12), transparent 40%)",
         }}
       />
-      {/* Purple light */}
       <div
         className="pointer-events-none fixed inset-0 z-0"
         style={{
